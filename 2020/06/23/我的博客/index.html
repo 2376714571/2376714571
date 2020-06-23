@@ -19,6 +19,8 @@
     <title>我的博客 - 黑剑客与剑</title>
   
   
+    <meta name="description" content="12345678910   import time,loggingfrom selenium import webdriverfrom selenium.webdriver.common.by import Byfrom selenium.webdriver.support.ui import WebDriver...">
+  
 
   <!-- feed -->
   
@@ -397,80 +399,9 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <pre><code>python
-import time,logging
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+          <pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">import</span> time,logging</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_driver</span><span class="params">()</span>:</span></span><br><span class="line">  	chromedriver = <span class="string">r"C:\Program Files 		(x86)\Google\Chrome\Application\chromedriver.exe"</span></span><br><span class="line">   	driver = webdriver.Chrome(chromedriver)</span><br><span class="line">   	<span class="keyword">return</span> driver</span><br></pre></td></tr></table></figure></code></pre><a id="more"></a>
 
-def get_driver():
-    chromedriver = r&quot;C:\Program Files         (x86)\Google\Chrome\Application\chromedriver.exe&quot;
-    driver = webdriver.Chrome(chromedriver)
-    return driver
-
-def login_qq(driver, login_page, username, password):
-    driver.get(login_page)
-    iframe = driver.find_element_by_xpath(&quot;//iframe[@id]&quot;)
-    driver.switch_to.frame(iframe)
-    try:
-        WebDriverWait(driver, 5).until(
-            EC.element_to_be_clickable((By.ID,     &quot;switcher_plogin&quot;))
-    )
-    except Exception as e:
-        logging.exception(e)
-        pass
-    driver.find_element_by_id(&quot;switcher_plogin&quot;).click()  # 切换到qq登录输入框
-# 用户名
-    username_input = driver.find_element_by_id(&quot;u&quot;)
-    username_input.clear()
-    username_input.send_keys(username)
-# 密码
-    password_input = driver.find_element_by_id(&quot;p&quot;)
-    password_input.clear()
-    password_input.send_keys(password)
-    before_url = driver.current_url  # 记录地址栏url
-# 点击登录
-    driver.find_element_by_id(&quot;login_button&quot;).click()
-    time.sleep(2)
-    if driver.current_url == before_url:  # 如果url没有改变,则判定登录失败
-    # 登录不成功
-        print(&quot;登录失败,正在重试&quot;)
-        login_qq(driver, login_page,username,password)
-    return &quot;seccess&quot;
-def like_music(driver,music_page):
-driver.get(music_page)
-driver.switch_to.frame(&apos;g_iframe&apos;)
-time.sleep(2)
-while True:
-    comments = driver.find_element_by_id(&apos;comment-box&apos;).find_elements_by_css_selector(&apos;.itm&apos;) #获取所有评论item元素
-    for item in comments:
-        try:
-            target = driver.find_element_by_xpath(&apos;//a[@data-type=&quot;like&quot;]&apos;) #筛选出未点赞的元素
-            driver.execute_script(&quot;arguments[0].scrollIntoView();&quot;, target)  #拖动到可见的元素处
-            target.click() #点赞
-            time.sleep(0.4)
-        except Exception as e:
-            logging.exception(e)
-            pass
-    next_btn=driver.find_element_by_link_text(&quot;下一页&quot;) # 评论翻页
-    if &quot;disable&quot; in next_btn.get_attribute(&quot;class&quot;): #判断class属性中是否包含disabled字段
-        print(&quot;点赞完毕&quot;)
-        break
-    next_btn.click()
-    time.sleep(1)
-return &quot;over&quot;
-
-login_page=&quot;https://graph.qq.com/oauth/show?which=Login&amp;display=pc&amp;client_id=100495085&amp;response_type=code&amp;redirect_uri=https://music.163.com/back/qq&amp;forcelogin=true&amp;state=ZwKHpxUoam&quot;
-driver = get_driver()
-try:
-login_qq(driver, login_page, &quot;qq_username&quot;, &quot;qq_password&quot;) #登录
-except Exception as e:
-logging.exception(e)
-pass
-driver.refresh()
-music_page=&quot;http://music.163.com/#/song?id=32358440&quot;
-like_music(driver,music_page) #点赞</code></pre>
+<pre><code><figure class="highlight plain"><figcaption><span>login_qq(driver, login_page, username, password):</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">   	driver.get(login_page)</span><br><span class="line">   	iframe &#x3D; driver.find_element_by_xpath(&quot;&#x2F;&#x2F;iframe[@id]&quot;)</span><br><span class="line">   	driver.switch_to.frame(iframe)</span><br><span class="line">   	try:</span><br><span class="line">       	WebDriverWait(driver, 5).until(</span><br><span class="line">           	EC.element_to_be_clickable((By.ID, 	&quot;switcher_plogin&quot;))</span><br><span class="line">       )</span><br><span class="line">   	except Exception as e:</span><br><span class="line">       	logging.exception(e)</span><br><span class="line">       	pass</span><br><span class="line">   	driver.find_element_by_id(&quot;switcher_plogin&quot;).click()  # 切换到qq登录输入框</span><br><span class="line">   # 用户名</span><br><span class="line">   	username_input &#x3D; driver.find_element_by_id(&quot;u&quot;)</span><br><span class="line">   	username_input.clear()</span><br><span class="line">   	username_input.send_keys(username)</span><br><span class="line">   # 密码</span><br><span class="line">   	password_input &#x3D; driver.find_element_by_id(&quot;p&quot;)</span><br><span class="line">   	password_input.clear()</span><br><span class="line">   	password_input.send_keys(password)</span><br><span class="line">   	before_url &#x3D; driver.current_url  # 记录地址栏url</span><br><span class="line">   # 点击登录</span><br><span class="line">   	driver.find_element_by_id(&quot;login_button&quot;).click()</span><br><span class="line">   	time.sleep(2)</span><br><span class="line">   	if driver.current_url &#x3D;&#x3D; before_url:  # 如果url没有改变,则判定登录失败</span><br><span class="line">       # 登录不成功</span><br><span class="line">       	print(&quot;登录失败,正在重试&quot;)</span><br><span class="line">       	login_qq(driver, login_page,username,password)</span><br><span class="line">   	return &quot;seccess&quot;</span><br><span class="line">def like_music(driver,music_page):</span><br><span class="line">   driver.get(music_page)</span><br><span class="line">   driver.switch_to.frame(&#39;g_iframe&#39;)</span><br><span class="line">   time.sleep(2)</span><br><span class="line">   while True:</span><br><span class="line">       comments &#x3D; driver.find_element_by_id(&#39;comment-box&#39;).find_elements_by_css_selector(&#39;.itm&#39;) #获取所有评论item元素</span><br><span class="line">       for item in comments:</span><br><span class="line">           try:</span><br><span class="line">               target &#x3D; driver.find_element_by_xpath(&#39;&#x2F;&#x2F;a[@data-type&#x3D;&quot;like&quot;]&#39;) #筛选出未点赞的元素</span><br><span class="line">               driver.execute_script(&quot;arguments[0].scrollIntoView();&quot;, target)  #拖动到可见的元素处</span><br><span class="line">               target.click() #点赞</span><br><span class="line">               time.sleep(0.4)</span><br><span class="line">           except Exception as e:</span><br><span class="line">               logging.exception(e)</span><br><span class="line">               pass</span><br><span class="line">       next_btn&#x3D;driver.find_element_by_link_text(&quot;下一页&quot;) # 评论翻页</span><br><span class="line">       if &quot;disable&quot; in next_btn.get_attribute(&quot;class&quot;): #判断class属性中是否包含disabled字段</span><br><span class="line">           print(&quot;点赞完毕&quot;)</span><br><span class="line">           break</span><br><span class="line">       next_btn.click()</span><br><span class="line">       time.sleep(1)</span><br><span class="line">   return &quot;over&quot;</span><br><span class="line"></span><br><span class="line">login_page&#x3D;&quot;https:&#x2F;&#x2F;graph.qq.com&#x2F;oauth&#x2F;show?which&#x3D;Login&amp;display&#x3D;pc&amp;client_id&#x3D;100495085&amp;response_type&#x3D;code&amp;redirect_uri&#x3D;https:&#x2F;&#x2F;music.163.com&#x2F;back&#x2F;qq&amp;forcelogin&#x3D;true&amp;state&#x3D;ZwKHpxUoam&quot;</span><br><span class="line">driver &#x3D; get_driver()</span><br><span class="line">try:</span><br><span class="line">   login_qq(driver, login_page, &quot;qq_username&quot;, &quot;qq_password&quot;) #登录</span><br><span class="line">except Exception as e:</span><br><span class="line">   logging.exception(e)</span><br><span class="line">   pass</span><br><span class="line">driver.refresh()</span><br><span class="line">music_page&#x3D;&quot;http:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;song?id&#x3D;32358440&quot;</span><br><span class="line">like_music(driver,music_page) #点赞</span><br></pre></td></tr></table></figure></code></pre>
           
             <div class='article_footer'>
               
@@ -557,7 +488,7 @@ like_music(driver,music_page) #点赞</code></pre>
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-23T12:18:37+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-23T13:38:59+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jun 23, 2020</p>
@@ -584,7 +515,7 @@ like_music(driver,music_page) #点赞</code></pre>
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/06/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/&title=我的博客 - 黑剑客与剑&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/06/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/&title=我的博客 - 黑剑客与剑&summary=12345678910   import time,loggingfrom selenium import webdriverfrom selenium.webdriver.common.by import Byfrom selenium.webdriver.support.ui import WebDriverWaitfrom selenium.webdriver.support import expected_conditions as ECdef get_driver():  	chromedriver = r"C:\Program Files 		(x86)\Google\Chrome\Application\chromedriver.exe"   	driver = webdriver.Chrome(chromedriver)   	return driver"
           
           >
           
@@ -596,7 +527,7 @@ like_music(driver,music_page) #点赞</code></pre>
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/06/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/&title=我的博客 - 黑剑客与剑&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/06/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/&title=我的博客 - 黑剑客与剑&summary=12345678910   import time,loggingfrom selenium import webdriverfrom selenium.webdriver.common.by import Byfrom selenium.webdriver.support.ui import WebDriverWaitfrom selenium.webdriver.support import expected_conditions as ECdef get_driver():  	chromedriver = r"C:\Program Files 		(x86)\Google\Chrome\Application\chromedriver.exe"   	driver = webdriver.Chrome(chromedriver)   	return driver"
           
           >
           
@@ -608,7 +539,7 @@ like_music(driver,music_page) #点赞</code></pre>
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/06/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/&title=我的博客 - 黑剑客与剑&summary="
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/06/23/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/&title=我的博客 - 黑剑客与剑&summary=12345678910   import time,loggingfrom selenium import webdriverfrom selenium.webdriver.common.by import Byfrom selenium.webdriver.support.ui import WebDriverWaitfrom selenium.webdriver.support import expected_conditions as ECdef get_driver():  	chromedriver = r"C:\Program Files 		(x86)\Google\Chrome\Application\chromedriver.exe"   	driver = webdriver.Chrome(chromedriver)   	return driver"
           
           >
           
@@ -1114,5 +1045,5 @@ like_music(driver,music_page) #点赞</code></pre>
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
 <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
 <script type="text/javascript" src="/js/fireworks.js"></script>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
